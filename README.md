@@ -1,2 +1,2 @@
-# ShowroomManagement
-SQL+JAVA
+# Managementul unui Showroom Auto
+
