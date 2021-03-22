@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Locatie noua</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Introduceti o locatie noua</h1>
+    <br/>
+    <form action="#" th:action="@{/locatii/save}" th:object="${locatie}"
+          method="post">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>ID_locatie:</td>
+                <td><input type="number" th:field="*{id_locatie}" /></td>
+            </tr>
+            <tr>
+                <td>Adresa:</td>
+                <td><input type="text" th:field="*{adresa}" /></td>
+            </tr>
+            <tr>
+                <td>Cod_postal:</td>
+                <td><input type="text" th:field="*{cod_postal}" /></td>
+            </tr>
+            <tr>
+                <td>Oras:</td>
+                <td><input type="text" th:field="*{oras}" /></td>
+            </tr>
+            <tr>
+                <td>ID_tara:</td>
+                <td><input type="number" th:field="*{id_tara}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Add</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

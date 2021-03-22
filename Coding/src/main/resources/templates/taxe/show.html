@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Taxe</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Taxe</h1>
+    <a href="/taxe/new">Introduceti o taxa noua</a>
+
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_taxa</th>
+                <th>Nume_taxa</th>
+                <th>Pret</th>
+                <th>Clasa</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="taxa : ${listaTaxe}">
+                <td th:text="${taxa.id_taxa}">ID_taxa</td>
+                <td th:text="${taxa.nume_taxa}">Nume_taxa</td>
+                <td th:text="${taxa.pret}">Pret</td>
+                <td th:text="${taxa.clasa}">Clasa</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/taxe/edit/' + ${taxa.id_taxa}}" >Editeaza taxa</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/taxe/delete/' + ${taxa.id_taxa}}" >Sterge taxa</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

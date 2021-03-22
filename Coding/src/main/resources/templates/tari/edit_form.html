@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Editare tari</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Editati tara</h1>
+    <br />
+    <form action="#" th:action="@{/tari/update}" th:object="${tara}"
+          method="post">
+
+        <table>
+            <tr>
+                <td>ID_tara:</td>
+                <td><input type="number" th:field="*{id_tara}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Nume_tara:</td>
+                <td><input type="text" th:field="*{nume_tara}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

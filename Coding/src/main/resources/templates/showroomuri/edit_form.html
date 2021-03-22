@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Editare showroomuri</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Editati showroomul</h1>
+    <br />
+    <form action="#" th:action="@{/showroomuri/update}" th:object="${showroom}"
+          method="post">
+
+        <table>
+            <tr>
+                <td>ID_showroom:</td>
+                <td><input type="number" th:field="*{id_showroom}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Denumire:</td>
+                <td><input type="text" th:field="*{denumire}" /></td>
+            </tr>
+            <tr>
+                <td>Ora_deschidere:</td>
+                <td><input type="text" th:field="*{ora_deschidere}" /></td>
+            </tr>
+            <tr>
+                <td>Ora_inchidere:</td>
+                <td><input type="text" th:field="*{ora_inchidere}" /></td>
+            </tr>
+            <tr>
+                <td>Contact:</td>
+                <td><input type="text" th:field="*{contact}" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" th:field="*{email}" /></td>
+            </tr>
+            <tr>
+                <td>IBAN:</td>
+                <td><input type="text" th:field="*{IBAN}" /></td>
+            </tr>
+            <tr>
+                <td>CIF:</td>
+                <td><input type="text" th:field="*{CIF}" /></td>
+            </tr>
+            <tr>
+                <td>Nr_Reg_Com:</td>
+                <td><input type="text" th:field="*{nr_Reg_Com}" /></td>
+            </tr>
+            <tr>
+                <td>Stampila:</td>
+                <td><input type="text" th:field="*{stampila}" /></td>
+            </tr>
+            <tr>
+                <td>ID_locatie:</td>
+                <td><input type="number" th:field="*{id_locatie}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

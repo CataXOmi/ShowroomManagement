@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Masini</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Masini</h1>
+    <a href="/masini/new">Introduceti o masina noua</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_masina</th>
+                <th>Model_Masina</th>
+                <th>Cai_putere</th>
+                <th>An_fabricatie</th>
+                <th>Combustibil</th>
+                <th>Kilometraj</th>
+                <th>Norma_poluare</th>
+                <th>Culoare</th>
+                <th>Tip_volan</th>
+                <th>Cutie_viteze</th>
+                <th>Transmisie</th>
+                <th>Numar_portiere</th>
+                <th>Pret</th>
+                <th>ID_cumparator</th>
+                <th>ID_furnizor</th>
+                <th>ID_dealer</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="masina : ${listaMasini}">
+                <td th:text="${masina.id_masina}">ID_masina</td>
+                <td th:text="${masina.model_Masina}">Model_Masina</td>
+                <td th:text="${masina.cai_putere}">Cai_putere</td>
+                <td th:text="${masina.an_fabricatie}">An_fabricatie</td>
+                <td th:text="${masina.combustibil}">Combustibil</td>
+                <td th:text="${masina.kilometraj}">Kilometraj</td>
+                <td th:text="${masina.norma_poluare}">Norma_poluare</td>
+                <td th:text="${masina.culoare}">Culoare</td>
+                <td th:text="${masina.tip_volan}">Tip_volan</td>
+                <td th:text="${masina.cutie_viteze}">Cutie_viteze</td>
+                <td th:text="${masina.transmisie}">Transmisie</td>
+                <td th:text="${masina.numar_portiere}">Numar_portiere</td>
+                <td th:text="${masina.pret}">Pret</td>
+                <td th:text="${masina.id_cumparator}">ID_cumparator</td>
+                <td th:text="${masina.id_furnizor}">ID_furnizor</td>
+                <td th:text="${masina.id_dealer}">ID_dealer</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/masini/edit/' + ${masina.id_masina}}">Editeaza masina</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/masini/delete/' + ${masina.id_masina}}">Sterge masina</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

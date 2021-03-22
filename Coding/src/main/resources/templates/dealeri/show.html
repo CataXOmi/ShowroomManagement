@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Dealeri</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Dealeri</h1>
+    <a href="/dealeri/new">Introduceti un dealer nou</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_dealer</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>Telefon</th>
+                <th>Semnatura</th>
+                <th>Email</th>
+                <th>Domiciliu</th>
+                <th>ID_showroom</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dealer : ${listaDealeri}">
+                <td th:text="${dealer.id_dealer}">ID_dealer</td>
+                <td th:text="${dealer.nume}">Nume</td>
+                <td th:text="${dealer.prenume}">Prenume</td>
+                <td th:text="${dealer.telefon}">Telefon</td>
+                <td th:text="${dealer.semnatura}">Semnatura</td>
+                <td th:text="${dealer.email}">Email</td>
+                <td th:text="${dealer.domiciliu}">CI</td>
+                <td th:text="${dealer.id_showroom}">ID_showroom</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/dealeri/edit/' + ${dealer.id_dealer}}">Editeaza dealerul</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/dealeri/delete/' + ${dealer.id_dealer}}">Sterge dealerul</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

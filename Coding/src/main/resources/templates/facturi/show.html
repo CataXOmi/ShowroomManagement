@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Facturi</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul asociativ Facturi</h1>
+    <a href="/facturi/new">Adaugati o noua legatura taxe-masini</a>
+    <br/><br/>
+    <div class="container">
+        <table  class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_taxa</th>
+                <th>ID_masina</th>
+                <th>Numar_factura</th>
+                <th>Suma</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="factura : ${listaFacturi}">
+                <td th:text="${factura.id_taxa}">ID_taxa</td>
+                <td th:text="${factura.id_masina}">ID_masina</td>
+                <td th:text="${factura.numar_factura}">Numar_factura</td>
+                <td th:text="${factura.suma}">Suma</td>
+                <td width="350px">
+                    <a class="text-primary" th:href="@{'/facturi/edit/' + ${factura.id_taxa} + '/' + ${factura.id_masina}}">Editeaza factura</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/facturi/delete/' + ${factura.id_taxa} + '/' + ${factura.id_masina}}">Sterge factura</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="/fragments/general.html :: scripts"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Pachete</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul asociativ Pachete</h1>
+    <a href="/pachete/new">Adaugati o noua legatura dotari-masini</a>
+    <br/><br/>
+    <div class="container">
+        <table  class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_dotare</th>
+                <th>ID_masina</th>
+                <th>Nume_pachet</th>
+                <th>Pachet_continut</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pachet : ${listaPachete}">
+                <td th:text="${pachet.id_dotare}">ID_dotare</td>
+                <td th:text="${pachet.id_masina}">ID_masina</td>
+                <td th:text="${pachet.nume_pachet}">Nume_pachet</td>
+                <td th:text="${pachet.pachet_continut}">Pachet_continut</td>
+                <td width="350px">
+                    <a class="text-primary" th:href="@{'/pachete/edit/' + ${pachet.id_dotare} + '/' + ${pachet.id_masina}}">Editeaza pachetul</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/pachete/delete/' + ${pachet.id_dotare} + '/' + ${pachet.id_masina}}">Sterge pachetul</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="/fragments/general.html :: scripts"></div>
+</body>
+</html>

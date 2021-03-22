@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Showroomuri</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Showroomuri</h1>
+    <a href="/showroomuri/new">Introduceti un showroom nou</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_showroom</th>
+                <th>Denumire</th>
+                <th>Ora_deschidere</th>
+                <th>Ora_inchidere</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>IBAN</th>
+                <th>CIF</th>
+                <th>Nr_Reg_Com</th>
+                <th>Stampila</th>
+                <th>ID_locatie</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="showroom : ${listaShowroomuri}">
+                <td th:text="${showroom.id_showroom}">ID_showroom</td>
+                <td th:text="${showroom.denumire}">Denumire</td>
+                <td th:text="${showroom.ora_deschidere}">Ora_deschidere</td>
+                <td th:text="${showroom.ora_inchidere}">Ora_inchidere</td>
+                <td th:text="${showroom.contact}">Contact</td>
+                <td th:text="${showroom.email}">Email</td>
+                <td th:text="${showroom.IBAN}">IBAN</td>
+                <td th:text="${showroom.CIF}">CIF</td>
+                <td th:text="${showroom.nr_Reg_Com}">Nr_Reg_Com</td>
+                <td th:text="${showroom.stampila}">Stampila</td>
+                <td th:text="${showroom.id_locatie}">ID_locatie</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/showroomuri/edit/' + ${showroom.id_showroom}}">Editeaza showroomul</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/showroomuri/delete/' + ${showroom.id_showroom}}">Sterge showroomul</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

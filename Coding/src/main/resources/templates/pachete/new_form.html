@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Pachet nou</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Adaugati o noua legatura dotari-masini</h1>
+    <br/>
+    <form action="#" th:action="@{/pachete/save}" th:object="${pachet}"
+          method="post">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>ID_dotare:</td>
+                <td><input type="number" th:field="*{id_dotare}" /></td>
+            </tr>
+            <tr>
+                <td>ID_masina:</td>
+                <td><input type="number" th:field="*{id_masina}" /></td>
+            </tr>
+            <tr>
+                <td>Nume_pachet:</td>
+                <td><input type="text" th:field="*{nume_pachet}" /></td>
+            </tr>
+            <tr>
+                <td>Pachet_continut:</td>
+                <td><input type="text" th:field="*{pachet_continut}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Add</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
