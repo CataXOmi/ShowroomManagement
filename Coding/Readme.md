@@ -1,1 +1,1 @@
-Java + spring implementation of database and GUI.
+Java, Spring and Javascript implementation of database and GUI.
