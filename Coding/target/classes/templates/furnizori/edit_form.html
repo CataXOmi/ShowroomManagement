@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Editare furnizori</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Editati furnizorul</h1>
+    <br />
+    <form action="#" th:action="@{/furnizori/update}" th:object="${furnizor}"
+          method="post">
+
+        <table>
+            <tr>
+                <td>ID_furnizor:</td>
+                <td><input type="number" th:field="*{id_furnizor}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Denumire:</td>
+                <td><input type="text" th:field="*{denumire}" /></td>
+            </tr>
+            <tr>
+                <td>Adresa:</td>
+                <td><input type="text" th:field="*{adresa}" /></td>
+            </tr>
+            <tr>
+                <td>Oras:</td>
+                <td><input type="text" th:field="*{cod_postal}" /></td>
+            </tr>
+            <tr>
+                <td>Cod_postal:</td>
+                <td><input type="text" th:field="*{cod_postal}" /></td>
+            </tr>
+            <tr>
+                <td>Stampila:</td>
+                <td><input type="text" th:field="*{stampila}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Locatii</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Locatii</h1>
+    <a href="/locatii/new">Introduceti o locatie noua</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_locatie</th>
+                <th>Adresa</th>
+                <th>Cod_postal</th>
+                <th>Oras</th>
+                <th>ID_tara</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="locatie : ${listaLocatii}">
+                <td th:text="${locatie.id_locatie}">ID_locatie</td>
+                <td th:text="${locatie.adresa}">Adresa</td>
+                <td th:text="${locatie.cod_postal}">Cod_postal</td>
+                <td th:text="${locatie.oras}">Oras</td>
+                <td th:text="${locatie.id_tara}">ID_tara</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/locatii/edit/' + ${locatie.id_locatie}}">Editeaza locatia</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/locatii/delete/' + ${locatie.id_locatie}}">Sterge locatia</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

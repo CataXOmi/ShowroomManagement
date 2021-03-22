@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Dotari</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Dotari</h1>
+    <a href="/dotari/new">Introduceti o dotare noua</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_dotare</th>
+                <th>Nume_dotare</th>
+                <th>Optional</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dotare : ${listaDotari}">
+                <td th:text="${dotare.id_dotare}">ID_dotare</td>
+                <td th:text="${dotare.nume_dotare}">Nume_dotare</td>
+                <td th:text="${dotare.optional}">Optional</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/dotari/edit/' + ${dotare.id_dotare}}">Editeaza dotarea</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/dotari/delete/' + ${dotare.id_dotare}}">Sterge dotarea</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

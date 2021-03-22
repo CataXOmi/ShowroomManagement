@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabelul: Furnizori</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Tabelul Furnizori</h1>
+    <a href="/furnizori/new">Introduceti un furnizor nou</a>
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_furnizor</th>
+                <th>Denumire</th>
+                <th>Adresa</th>
+                <th>Oras</th>
+                <th>Cod_postal</th>
+                <th>Stampila</th>
+                <th>Operatii_Tabel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="furnizor : ${listaFurnizori}">
+                <td th:text="${furnizor.id_furnizor}">ID_furnizor</td>
+                <td th:text="${furnizor.denumire}">Denumire</td>
+                <td th:text="${furnizor.adresa}">Adresa</td>
+                <td th:text="${furnizor.oras}">Oras</td>
+                <td th:text="${furnizor.cod_postal}">Cod_postal</td>
+                <td th:text="${furnizor.stampila}">Stampila</td>
+                <td width="255px">
+                    <a class="text-primary" th:href="@{'/furnizori/edit/' + ${furnizor.id_furnizor}}">Editeaza furnizorul</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="text-danger" th:href="@{'/furnizori/delete/' + ${furnizor.id_furnizor}}">Sterge furnizorul</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

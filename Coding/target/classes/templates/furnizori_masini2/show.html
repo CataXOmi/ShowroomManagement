@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Vizualizare 2</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Vizualizare 2</h1>
+    <h3>Denumirea furnizorilor care livreaza un numar de masini mai mare egal ca 2,</h3>
+    <h3>cu un pret mediu mai mare decat 25000 si cu un kilometraj mediu mai mic 8400.</h3>
+
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Denumire</th>
+                <th>Numar_masini</th>
+                <th>Media_preturilor</th>
+                <th>Media_kilometrilor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="furnizor : ${listaFurnizorimasini2}">
+                <td th:text="${furnizor.denumire}">Denumire</td>
+                <td th:text="${furnizor.numar_masini}">Numar_masini</td>
+                <td th:text="${furnizor.media_preturilor}">Media_preturilor</td>
+                <td th:text="${furnizor.media_kilometrilor}">Media_kilometrilor</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+
+</body>
+</html>

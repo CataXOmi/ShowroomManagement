@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Vizualizare 1</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Vizualizare 1</h1>
+    <h3>Masinile care s-au fabricat dupa 2015 si care fac parte din showroom-uri</h3>
+    <h3>care se inchid dupa ora 19:00 si se afla in orasele Bucuresti, Londra si Roma.</h3>
+
+    <br/><br/>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>ID_masina</th>
+                <th>Model_masina</th>
+                <th>An_fabricatie</th>
+                <th>ID_dealer</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>ID_showroom</th>
+                <th>Denumire</th>
+                <th>Ora_deschidere</th>
+                <th>Ora_inchidere</th>
+                <th>Oras</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="masina : ${listaMasini2015}">
+                <td th:text="${masina.id_masina}">ID_masina</td>
+                <td th:text="${masina.model_masina}">Model_masina</td>
+                <td th:text="${masina.an_fabricatie}">An_fabricatie</td>
+                <td th:text="${masina.id_dealer}">ID_dealer</td>
+                <td th:text="${masina.nume}">Nume</td>
+                <td th:text="${masina.prenume}">Prenume</td>
+                <td th:text="${masina.id_showroom}">ID_showroom</td>
+                <td th:text="${masina.denumire}">Denumire</td>
+                <td th:text="${masina.ora_deschidere}">Ora_deschidere</td>
+                <td th:text="${masina.ora_inchidere}">Ora_inchidere</td>
+                <td th:text="${masina.oras}">Oras</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="/fragments/general.html :: scripts"></div>
+</body>
+</html>

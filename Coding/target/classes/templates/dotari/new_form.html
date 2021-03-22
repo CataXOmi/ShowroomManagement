@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Dotare noua</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Introduceti o dotare noua</h1>
+    <br/>
+    <form action="#" th:action="@{/dotari/save}" th:object="${dotare}"
+          method="post">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>ID_dotare:</td>
+                <td><input type="number" th:field="*{id_dotare}" /></td>
+            </tr>
+            <tr>
+                <td>Nume_dotare:</td>
+                <td><input type="text" th:field="*{nume_dotare}" /></td>
+            </tr>
+            <tr>
+                <td>Optional:</td>
+                <td><input type="text" th:field="*{optional}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Add</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

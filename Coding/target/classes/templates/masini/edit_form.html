@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Editare masini</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Editati masina</h1>
+    <br />
+    <form action="#" th:action="@{/masini/update}" th:object="${masina}"
+          method="post">
+
+        <table>
+            <tr>
+                <td>ID_masina:</td>
+                <td><input type="number" th:field="*{id_masina}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Model_Masina:</td>
+                <td><input type="text" th:field="*{model_Masina}" /></td>
+            </tr>
+            <tr>
+                <td>Cai_putere:</td>
+                <td><input type="number" th:field="*{cai_putere}" /></td>
+            </tr>
+            <tr>
+                <td>An_fabricatie:</td>
+                <td><input type="number" th:field="*{an_fabricatie}" /></td>
+            </tr>
+            <tr>
+                <td>Combustibil:</td>
+                <td><input type="text" th:field="*{combustibil}" /></td>
+            </tr>
+            <tr>
+                <td>Kilometraj:</td>
+                <td><input type="number" th:field="*{kilometraj}" /></td>
+            </tr>
+            <tr>
+                <td>Norma_poluare:</td>
+                <td><input type="text" th:field="*{norma_poluare}" /></td>
+            </tr>
+            <tr>
+                <td>Culoare:</td>
+                <td><input type="text" th:field="*{culoare}" /></td>
+            </tr>
+            <tr>
+                <td>Tip_volan:</td>
+                <td><input type="text" th:field="*{tip_volan}" /></td>
+            </tr>
+            <tr>
+                <td>Cutie_viteze:</td>
+                <td><input type="text" th:field="*{cutie_viteze}" /></td>
+            </tr>
+            <tr>
+                <td>Transmisie:</td>
+                <td><input type="text" th:field="*{transmisie}" /></td>
+            </tr>
+            <tr>
+                <td>Numar_portiere:</td>
+                <td><input type="number" th:field="*{numar_portiere}" /></td>
+            </tr>
+            <tr>
+                <td>Pret:</td>
+                <td><input type="number" th:field="*{pret}" /></td>
+            </tr>
+            <tr>
+                <td>ID_cumparator:</td>
+                <td><input type="number" th:field="*{id_cumparator}" /></td>
+            </tr>
+            <tr>
+                <td>ID_furnizor:</td>
+                <td><input type="number" th:field="*{id_furnizor}" /></td>
+            </tr>
+            <tr>
+                <td>ID_dealer:</td>
+                <td><input type="number" th:field="*{id_dealer}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

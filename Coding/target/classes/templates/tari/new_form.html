@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Tara noua</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Introduceti o tara noua</h1>
+    <br/>
+    <form action="#" th:action="@{/tari/save}" th:object="${tara}"
+          method="post">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>ID_tara:</td>
+                <td><input type="number" th:field="*{id_tara}" /></td>
+            </tr>
+            <tr>
+                <td>Nume_tara:</td>
+                <td><input type="text" th:field="*{nume_tara}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Add</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

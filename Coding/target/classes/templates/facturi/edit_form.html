@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Editare facturi</title>
+    <style th:replace="/fragments/general.html :: style"></style>
+</head>
+<body>
+<div align="center">
+    <div th:replace="/fragments/general.html :: header"> </div>
+    <h1>Editati factura</h1>
+    <br />
+    <form action="#" th:action="@{'/facturi/update/' + ${factura.id_taxa} + '/' + ${factura.id_masina}}" th:object="${factura}"
+          method="post">
+
+        <table>
+            <tr>
+                <td>ID_taxa:</td>
+                <td><input type="number" th:field="*{id_taxa}" /></td>
+            </tr>
+            <tr>
+                <td>ID_masina:</td>
+                <td><input type="number" th:field="*{id_masina}" /></td>
+            </tr>
+            <tr>
+                <td>Numar_factura:</td>
+                <td><input type="number" th:field="*{numar_factura}" /></td>
+            </tr>
+            <tr>
+                <td>Suma:</td>
+                <td><input type="number" th:field="*{suma}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
